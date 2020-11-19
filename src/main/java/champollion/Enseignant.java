@@ -3,9 +3,12 @@ package champollion;
 public class Enseignant extends Personne {
 
     // TODO : rajouter les autres méthodes présentes dans le diagramme UML
+    List<ServicePrevu> serviceprevu = new ArrayList<>();
+    List<Intervention> interventions = new LinKedList<>();
+    
 
     public Enseignant(String nom, String email) {
-        super(nom, email);
+        super(nom, email);  
     }
 
     /**
@@ -17,8 +20,21 @@ public class Enseignant extends Personne {
      *
      */
     public int heuresPrevues() {
-        // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        int equivalentTD =0;
+        for (ServicePrevu s : serviceprevu) {
+                equivalentTD += 1.5*s.getVolumeCM();
+                equivalentTD +=s.getVolumeTD();
+                equivalentTD +=0.75*s.getVolumeTP();
+                
+                round(equivalentTD);
+        
+                        
+                        
+                     
+            
+           
+        }
+        return equivalentTD;
     }
 
     /**
@@ -31,8 +47,16 @@ public class Enseignant extends Personne {
      *
      */
     public int heuresPrevuesPourUE(UE ue) {
-        // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        int heuresequivalentTD=0;
+        for(ServicesPrevu s : servicesprevu) {
+            if(s.getUe() == ue) {
+                heuresequivalentTD += 1.5$s.getVolumeCM() ;
+                heuresequivalentTD += s.getVolumeTD();
+                heuresequivalentTD += s.getVolmeTP();
+                round(heuresequivalentTD);
+            }
+        }
+        return heuresequivalentTD
     }
 
     /**
@@ -44,8 +68,8 @@ public class Enseignant extends Personne {
      * @param volumeTP le volume d'heures de TP
      */
     public void ajouteEnseignement(UE ue, int volumeCM, int volumeTD, int volumeTP) {
-        // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        ServicePrevu nouveauService = new servicePrevu(this , ue , volumeCM, volumeTD, volumeTP);
+        serviceprevu.add(nouveauservice);
     }
 
 }
