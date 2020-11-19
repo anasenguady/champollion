@@ -56,7 +56,7 @@ public class Enseignant extends Personne {
                 round(heuresequivalentTD);
             }
         }
-        return heuresequivalentTD
+        return heuresequivalentTD ; 
     }
 
     /**
